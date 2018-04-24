@@ -3,7 +3,7 @@
  * Plugin Name:        Recent Posts by Timeframe
  * Plugin URI:         https://www.github.com/pixleight/p8-recent-posts
  * Description:        WordPress widget to display posts published within a recent timeframe
- * Version:            0.1.0
+ * Version:            0.1.1
  * Author:             Chris Violette
  * Author URI:         https://pixleight.com
  *
