@@ -24,24 +24,10 @@ if( !defined( 'ABSPATH' ) ) exit;
 
 class P8RP {
   public function __construct() {
-    // Set the constants needed by the plugin.
+    // Define constants used by the plugin.
 		add_action( 'plugins_loaded', array( &$this, 'constants' ), 1 );
 
-    // Register widget.
-		add_action( 'widgets_init', array( &$this, 'register_widget' ) );
-
-    // Load the functions files.
-		add_action( 'plugins_loaded', array( &$this, 'includes' ), 3 );
-  }
-
-  /**
-	 * Defines constants used by the plugin.
-	 *
-	 * @since  0.1
-	 */
-	public function constants() {
-
-		// Set constant path to the plugin directory.
+    // Set constant path to the plugin directory.
 		define( 'P8RP_DIR', trailingslashit( plugin_dir_path( __FILE__ ) ) );
 
 		// Set the constant path to the plugin directory URI.
@@ -56,7 +42,12 @@ class P8RP {
 		// Set the constant path to the assets directory.
 		define( 'P8RP_ASSETS', P8RP_URI . trailingslashit( 'assets' ) );
 
-	}
+    // Load the functions files.
+    add_action( 'init', array( &$this, 'includes' ), 1 );
+
+    // Register widget.
+		add_action( 'widgets_init', array( &$this, 'register_widget' ) );
+  }
 
   /**
 	 * Loads the initial files needed by the plugin.
